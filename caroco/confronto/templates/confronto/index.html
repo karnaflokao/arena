@@ -25,7 +25,6 @@ table, th, td {
 				<th>Data</th>
 				<th>Jogo</th>
 				<th>Official</th>
-				<th>Data Reserva</th>
 			</tr>
 			{% for confronto in latest_confronto_list %}
 			<tr>
@@ -33,7 +32,6 @@ table, th, td {
 				<td>{{ confronto.data_jogo }}</td>
 				<td>{{ confronto.jogo }}</td>
 				<td>{{ confronto.valendo }}</td>
-				<td>{{ confronto.data_reserv }}</td>
 			</tr>
 			{% endfor %}
 		</table>

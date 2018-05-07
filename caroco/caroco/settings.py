@@ -26,6 +26,8 @@ SECRET_KEY = 'e1=hn3hz)!w8^)pj(gp==_z^^$s)&i!l(i3h57o^re8w=crv+d'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+        'arena.cloudmandic.com.br',
+        '177.70.118.36',
         '192.168.0.16',
         '10.15.2.50',
         '127.0.0.1',
@@ -110,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
