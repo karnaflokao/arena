@@ -25,8 +25,10 @@ def index(request):
     allConfronto = Confronto.objects.all()
     latest_confronto_list = []
     utc = UTC()
+    now = datetime.now(utc)
+    now_after = now + timedelta(minutes = 30)
     for c in allConfronto:
-        if c.data_jogo > datetime.now(utc):
+        if c.data_jogo > now_after:
             latest_confronto_list.append(c)
     template = loader.get_template('confronto/index.html')
     context = {

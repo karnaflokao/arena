@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
 # Create your models here.
+
+from datetime import timedelta
 
 class Jogo(models.Model):
     def __str__(self):
@@ -13,7 +14,8 @@ class Jogo(models.Model):
 
 class Confronto(models.Model):
     def __str__(self):
-        return "%s: %s x %s - %s" % (self.jogo, self.time1, self.time2, self.data_jogo)
+        data_jogo = self.data_jogo - timedelta(hours = 3)
+        return "%s: %s x %s - %s" % (self.jogo, self.time1, self.time2, data_jogo)
 
     time1 = models.CharField(max_length=200)
     time2 = models.CharField(max_length=200)
