@@ -1,0 +1,45 @@
+<html>
+<head>
+ <!--            {%block stylesheet %}
+               <style type="text/css" title="currentStyle"> 
+                   @import "{{MEDIA_URL}}css/style.css";
+               </style>
+            {% endblock stylesheet%} -->
+<style>
+body {
+    background-color: lightblue;
+}
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+
+	{% if latest_confronto_list %}
+	<ul>
+		<table>
+			<tr>
+				<th>Confronto</th>
+				<th>Data</th>
+				<th>Jogo</th>
+				<th>Official</th>
+				<th>Data Reserva</th>
+			</tr>
+			{% for confronto in latest_confronto_list %}
+			<tr>
+				<td>{{ confronto.time1 }} x {{ confronto.time2 }}</td>
+				<td>{{ confronto.data_jogo }}</td>
+				<td>{{ confronto.jogo }}</td>
+				<td>{{ confronto.valendo }}</td>
+				<td>{{ confronto.data_reserv }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</ul>
+	{% else %}
+	<p>No confronto are available.</p>
+	{% endif %}
+</body>
+</html>

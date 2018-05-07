@@ -1,0 +1,47 @@
+<html>
+<head>
+ <style>
+body {
+    background-color: lightblue;
+}
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+th {
+	background-color: orange;
+	color: white
+	
+}
+td {
+	text-shadow: 3px 2px white;
+}
+</style>
+</head>
+
+<body>
+
+	{% if latest_dbz_list %}
+	<ul>
+		<table>
+			<tr>
+				<th>INDEX RANKING</th>
+				<th>GUERREIROS Z</th>
+				<th>PARTIDAS</th>
+				<th>PONTOS</th>
+			</tr>
+			{% for dbz in latest_dbz_list %}
+			<tr>
+				<td>{{ dbz.posicao }}</td>
+				<td>{{ dbz.guerreiro }}</td>
+				<td>{{ dbz.partidas }}</td>
+				<td>{{ dbz.pontos }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</ul>
+	{% else %}
+	<p>Sem jogadores para calcular o index rank.</p>
+	{% endif %}
+</body>
+</html>
