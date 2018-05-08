@@ -22,13 +22,13 @@ class UTC(tzinfo):
 
 
 def index(request):
-    allConfronto = Confronto.objects.all()
+    allConfronto = Confronto.objects.order_by('data_jogo')
     latest_confronto_list = []
     utc = UTC()
     now = datetime.now(utc)
-    now_after = now + timedelta(minutes = 30)
+    now_after = now - timedelta(minutes = 30)
     for c in allConfronto:
-        if c.data_jogo > now_after:
+        if c.data_jogo >= now_after:
             latest_confronto_list.append(c)
     template = loader.get_template('confronto/index.html')
     context = {

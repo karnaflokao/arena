@@ -15,8 +15,7 @@ class Jogo(models.Model):
 class Confronto(models.Model):
     def __str__(self):
         data_jogo = self.data_jogo - timedelta(hours = 3)
-        
-        return "%s: %s x %s - %s" % (self.jogo, self.time1, self.time2, data_jogo.strftime("%d/%m/%y %H:%m"))
+        return "%s: %s x %s - %s" % (self.jogo, self.time1, self.time2, data_jogo)
 
     time1 = models.CharField(max_length=200)
     time2 = models.CharField(max_length=200)
