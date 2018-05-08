@@ -29,6 +29,7 @@ td {
 				<th>GUERREIROS Z</th>
 				<th>PARTIDAS</th>
 				<th>PONTOS</th>
+				<th>TITULO</th>
 			</tr>
 			{% for dbz in latest_dbz_list %}
 			<tr>
@@ -36,6 +37,7 @@ td {
 				<td>{{ dbz.guerreiro }}</td>
 				<td>{{ dbz.partidas }}</td>
 				<td>{{ dbz.pontos }}</td>
+				<td>{{ dbz.titulo }}</td>
 			</tr>
 			{% endfor %}
 		</table>

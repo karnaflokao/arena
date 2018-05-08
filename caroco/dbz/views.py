@@ -6,15 +6,16 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from django.template import loader
-from .models import Guerreiro, Partida
+from .models import Guerreiro, Partida, Titulo
 from django.db.models import Q
 
 class dbz_rank():
-    def __init__(self,posicao=0,guerreiro=None,partidas=0,pontos=0):
+    def __init__(self,posicao=0,guerreiro=None,partidas=0,pontos=0,titulo=None):
         self.posicao = posicao
         self.guerreiro = guerreiro
         self.partidas = partidas
         self.pontos = pontos
+        self.titulo = titulo
     
     def somarPartida(self,partida=1, ponto=0):
         self.partidas += partida
@@ -36,6 +37,11 @@ def orderbyRank(allGuerreiros=[]):
             sA=allGuerreiros
         return sA
 
+def getTitulo(guerreiro=None):
+    for t in Titulo.objects.all():
+        if guerreiro.pontos >= t.pontosInicio and guerreiro.pontos <= t.pontosFinal:
+            return t.nome
+
 def ranking(request):
     guerreiros = Guerreiro.objects.all()
     latest_dbz_list = []
@@ -50,6 +56,7 @@ def ranking(request):
             else:
                 d.somarPartida(ponto=p.v2)
         d.posicao = 1
+        d.titulo = getTitulo(d)
         allGuerreiros.append(d)
     
     allGuerreiros = orderbyRank(allGuerreiros)
