@@ -11,13 +11,14 @@ from django.db.models import Q
 
 
 class dbz_rank():
-    def __init__(self,posicao=0,guerreiro=None,partidas=0,pontos=0,titulo=None):
+    def __init__(self,posicao=0,guerreiro=None,id=None,partidas=0,pontos=0,titulo=None,foto=None):
         self.posicao = posicao
         self.guerreiro = guerreiro
         self.id = id
         self.partidas = partidas
         self.pontos = pontos
         self.titulo = titulo
+        self.foto = foto
 
     
     def somarPartida(self,partida=1, ponto=0):
@@ -43,7 +44,7 @@ def orderbyRank(allGuerreiros=[]):
 def getTitulo(guerreiro=None):
     for t in Titulo.objects.all():
         if guerreiro.pontos >= t.pontosInicio and guerreiro.pontos <= t.pontosFinal:
-            return t.nome
+            return [t.nome, t.foto]
 
 def createRanking(g=None):
     partidas = Partida.objects.filter(Q(gz1=g.id) | Q(gz2=g.id))
@@ -56,7 +57,7 @@ def createRanking(g=None):
         else:
             d.somarPartida(ponto=p.v2)
     d.posicao = 1
-    d.titulo = getTitulo(d)
+    [d.titulo, d.foto] = getTitulo(d)
     return d
 
 def index(request):
@@ -114,12 +115,15 @@ def perfil(request,guerreiroId):
         if inserir:
             latest_dbz_faltaJ.append(g)
 
-    titulo = createRanking(latest_dbz_guerreiro[0]).titulo
+    rank = createRanking(latest_dbz_guerreiro[0])
+    titulo = rank.titulo
+    foto = rank.foto
     
     context = {
        'latest_dbz_guerreiro': latest_dbz_guerreiro,
        'latest_dbz_partidas': latest_dbz_partidas,
        'latest_dbz_faltaJ': latest_dbz_faltaJ,
-       'titulo': titulo
+       'titulo': titulo,
+       'foto': foto
     }
     return HttpResponse(template.render(context, request))
