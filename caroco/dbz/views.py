@@ -16,6 +16,7 @@ class dbz_rank():
         self.partidas = partidas
         self.pontos = pontos
         self.titulo = titulo
+
     
     def somarPartida(self,partida=1, ponto=0):
         self.partidas += partida

@@ -6,4 +6,5 @@ urlpatterns = [
     # ex: /polls/
 #     url('', views.index, name='index'),
     url('', views.ranking, name='ranking'),
+#    url('dbz/grade', views.grade, name='grade'),
 ]
