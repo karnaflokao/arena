@@ -59,6 +59,12 @@ def createRanking(g=None):
     d.titulo = getTitulo(d)
     return d
 
+def index(request):
+    template = loader.get_template('dbz/index.html')
+    context = {
+    }
+    return HttpResponse(template.render(context, request))
+    
 def ranking(request):
     guerreiros = Guerreiro.objects.all()
     latest_dbz_list = []

@@ -21,27 +21,9 @@ td {
 
 <body>
 
-	{% if latest_dbz_list %}
 	<ul>
-		<table>
-			<tr>
-				<th>INDEX RANKING</th>
-				<th>GUERREIROS Z</th>
-				<th>PARTIDAS</th>
-				<th>PONTOS</th>
-			</tr>
-			{% for dbz in latest_dbz_list %}
-			<tr>
-				<td>{{ dbz.posicao }}</td>
-				<td>{{ dbz.guerreiro }}</td>
-				<td>{{ dbz.partidas }}</td>
-				<td>{{ dbz.pontos }}</td>
-			</tr>
-			{% endfor %}
-		</table>
+		<li><a href="/dbz/ranking/">Ranking</a></li>
+		<li><a href="/confronto/">Confronto</a></li>
 	</ul>
-	{% else %}
-	<p>Sem jogadores para calcular o index rank.</p>
-	{% endif %}
 </body>
 </html>
