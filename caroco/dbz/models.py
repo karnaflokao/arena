@@ -29,7 +29,7 @@ class Titulo(models.Model):
     nome = models.CharField("Titulo", max_length=200)
     pontosInicio = models.IntegerField("Pontos Iniciais", default=0)
     pontosFinal = models.IntegerField("Pontos Finais", default=10)
-    
+    foto = models.CharField("foto", max_length=200)
     
     
     

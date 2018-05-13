@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e1=hn3hz)!w8^)pj(gp==_z^^$s)&i!l(i3h57o^re8w=crv+d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #False
 
 ALLOWED_HOSTS = [
 	'arena.cloudmandic.com.br',
