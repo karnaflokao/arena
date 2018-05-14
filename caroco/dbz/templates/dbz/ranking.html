@@ -32,7 +32,7 @@ th {
 			{% for dbz in latest_dbz_list %}
 			<tr>
 				<td>{{ dbz.posicao }}</td>
-				<td> <li><a href="/dbz/perfil/{{ dbz.id }}/">{{ dbz.guerreiro }}</a></li></td>
+				<td> <a href="/dbz/perfil/{{ dbz.id }}/">{{ dbz.guerreiro }}</a></td>
 				<td>{{ dbz.partidas }}</td>
 				<td>{{ dbz.pontos }}</td>
 				<td>{{ dbz.titulo }}</td>
