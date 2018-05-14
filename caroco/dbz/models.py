@@ -11,6 +11,7 @@ class Guerreiro(models.Model):
         return self.nome
 
     nome = models.CharField("Nome", max_length=200)
+    season = models.IntegerField(default=1)
 
 class Partida(models.Model):
     def __str__(self):
@@ -30,8 +31,7 @@ class Titulo(models.Model):
     pontosInicio = models.IntegerField("Pontos Iniciais", default=0)
     pontosFinal = models.IntegerField("Pontos Finais", default=10)
     foto = models.CharField("foto", max_length=200)
-    
-    
-    
-    
-    
+
+
+
+

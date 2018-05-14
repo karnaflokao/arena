@@ -11,7 +11,7 @@ table, th, td {
 th {
 	background-color: orange;
 	color: white
-	
+
 }
 </style>
 </head>
@@ -26,8 +26,8 @@ th {
 				<th>GUERREIROS Z</th>
 				<th>PARTIDAS</th>
 				<th>PONTOS</th>
-                                <th>TITULO</th>
-
+				<th>TITULO</th>
+				<th>SEASON</th>
 			</tr>
 			{% for dbz in latest_dbz_list %}
 			<tr>
@@ -36,6 +36,7 @@ th {
 				<td>{{ dbz.partidas }}</td>
 				<td>{{ dbz.pontos }}</td>
 				<td>{{ dbz.titulo }}</td>
+				<td>{{ dbz.season }}</td>
 			</tr>
 			{% endfor %}
 		</table>
