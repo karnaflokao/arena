@@ -130,9 +130,9 @@ def perfil(request,guerreiroId):
     return HttpResponse(template.render(context, request))
 
 def titulo(request):
-    latest_dbz_guerreiro = Titulo.objects.order_by('pontosInicio')
-    template = loader.get_template('dbz/perfil.html')
+    latest_dbz_titulo = Titulo.objects.order_by('pontosInicio')
+    template = loader.get_template('dbz/titulo.html')
     context = {
-       'latest_dbz_guerreiro': latest_dbz_guerreiro,
+       'latest_dbz_titulo': latest_dbz_titulo,
     }
     return HttpResponse(template.render(context, request))
