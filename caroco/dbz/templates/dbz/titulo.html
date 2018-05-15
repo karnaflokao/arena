@@ -23,6 +23,8 @@ th {
 			<tr>
 				<th colspan=2>Foto</th>
 				<th>Titulo</th>
+				<th>Inicio</th>
+				<th>Fim</th>
 			</tr>
 			</tr>
 
@@ -30,6 +32,8 @@ th {
 			<tr>
 				<td colspan=2> <img src="{{ dbz.foto }}" height=150 width=200 /></td>
 				<td>{{ dbz.nome }}</td>
+				<td>{{ dbz.pontosInicio }}</td>
+				<td>{{ dbz.pontosFinal }}</td>
 				</tr>
 				{% endfor %}
 			{% endif %}
