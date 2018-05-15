@@ -8,8 +8,6 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Guerreiro, Partida, Titulo
 from django.db.models import Q
-from ansible.module_utils.netapp import request
-
 
 class dbz_rank():
     def __init__(self,posicao=0,guerreiro=None,id=None,partidas=0,pontos=0,titulo=None,foto=None,season=0):
