@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Guerreiro, Partida, Titulo
 from django.db.models import Q
+from ansible.module_utils.netapp import request
 
 
 class dbz_rank():
@@ -127,5 +128,13 @@ def perfil(request,guerreiroId):
        'latest_dbz_faltaJ': latest_dbz_faltaJ,
        'titulo': titulo,
        'foto': foto
+    }
+    return HttpResponse(template.render(context, request))
+
+def titulo(request):
+    latest_dbz_guerreiro = Titulo.objects.order_by('pontosInicio')
+    template = loader.get_template('dbz/perfil.html')
+    context = {
+       'latest_dbz_guerreiro': latest_dbz_guerreiro,
     }
     return HttpResponse(template.render(context, request))
