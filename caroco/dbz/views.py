@@ -88,7 +88,7 @@ def perfil(request,guerreiroId):
 
     template = loader.get_template('dbz/perfil.html')
     latest_dbz_guerreiro = Guerreiro.objects.filter(id=guerreiroId)
-    allPartidas = Partida.objects.filter(Q(gz1=latest_dbz_guerreiro[0].id) | Q(gz2=latest_dbz_guerreiro[0].id))
+    allPartidas = Partida.objects.filter(Q(gz1=latest_dbz_guerreiro[0].id) | Q(gz2=latest_dbz_guerreiro[0].id)).order_by('-pSeason')
     latest_dbz_partidas = []
 
     for p in allPartidas:
@@ -111,7 +111,9 @@ def perfil(request,guerreiroId):
             continue
         inserir=True
         for p in latest_dbz_partidas:
-            if p.gz2 == g:
+
+            if p.gz2 == g and p.pSeason == latest_dbz_guerreiro[0].season:
+                print "if "+p.gz2.nome+" == "+g.nome+" and "+str(p.pSeason.temporada)+"== "+str(g.season.temporada)
                 inserir = False
                 break
         if inserir:
