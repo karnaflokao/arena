@@ -7,8 +7,8 @@ from django.db import models
 from confronto.models import Confronto
 
 class Season(models.Model):
-#     def __str__(self):
-#         return "%d Season" % self.temporada
+    def __str__(self):
+        return "%d Season" % self.temporada
     temporada = models.IntegerField('season', default=1)
 
 class Guerreiro(models.Model):
