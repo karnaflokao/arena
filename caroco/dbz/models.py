@@ -6,12 +6,17 @@ from django.db import models
 # Create your models here.
 from confronto.models import Confronto
 
+class Season(models.Model):
+    def __str__(self):
+        return "Season - %d" % self.season
+    temporada = models.IntegerField('season', default=1)
+
 class Guerreiro(models.Model):
     def __str__(self):
         return self.nome
 
     nome = models.CharField("Nome", max_length=200)
-    season = models.IntegerField(default=1)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, related_name='season')
 
 class Partida(models.Model):
     def __str__(self):
