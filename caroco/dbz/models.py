@@ -23,7 +23,6 @@ class Guerreiro(models.Model):
     def exist_lowSeason(self,guerreiro):
         season = guerreiro.season
         for s in Season.objects.filter(id__lt=season.id):
-            print len(Guerreiro.objects.filter(season=s))
             if len(Guerreiro.objects.filter(season=s)) > 0:
                 return True
         return False
@@ -76,7 +75,6 @@ class Partida(models.Model):
         return allPartidas
 
     def updateGuerreiroSeason(self, guerreiro):
-        print guerreiro
         season = guerreiro.season
         newTemp = season.temporada+1
         newSeason = Season.objects.filter(temporada=newTemp)
