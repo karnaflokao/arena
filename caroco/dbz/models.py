@@ -8,7 +8,7 @@ from confronto.models import Confronto
 
 class Season(models.Model):
     def __str__(self):
-        return "Season - %d" % self.season
+        return "Season - %d" % self.temporada
     temporada = models.IntegerField('season', default=1)
 
 class Guerreiro(models.Model):
