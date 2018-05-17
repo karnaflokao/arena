@@ -11,7 +11,7 @@ table, th, td {
 th {
 	background-color: orange;
 	color: white
-	
+
 }
 </style>
 	</head>
@@ -25,7 +25,7 @@ th {
 							<th>GuerreiroZ</th>
 							<th>Titulo</tr>
 							</tr>
-		
+
 		{% if latest_dbz_guerreiro %}
 			{% for dbz in latest_dbz_guerreiro %}
 			<tr>
@@ -44,11 +44,12 @@ th {
 			<th>Pontos</th>
 			<th>GuerreiroZ</th>
 			<th>Pontos</th>
+			<th>Season</th>
 		</tr>
 		{% if latest_dbz_partidas %}
 			{% for dbz_p in latest_dbz_partidas %}
-			<tr>		
-				<td>{{ dbz_p.gz1 }}</td><td>{{ dbz_p.v1 }}</td> <td>{{ dbz_p.v2 }}</td><td>{{ dbz_p.gz2 }}</td>
+			<tr>
+				<td>{{ dbz_p.gz1 }}</td><td>{{ dbz_p.v1 }}</td> <td>{{ dbz_p.v2 }}</td><td>{{ dbz_p.gz2 }}</td><td>dbz_p.season</td>
 				</tr>
 			{% endfor %}
 		{% endif %}
