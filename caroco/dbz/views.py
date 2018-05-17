@@ -101,7 +101,7 @@ def perfil(request,guerreiroId):
             newp.v1=p.v2
             newp.gz2=p.gz1
             newp.v2=p.v1
-            newp.pseason = p.pseason
+            newp.pSeason = p.pSeason
             latest_dbz_partidas.append(newp)
 
     latest_dbz_faltaJ = []
