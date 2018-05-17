@@ -27,6 +27,7 @@ class Partida(models.Model):
     gz2 = models.ForeignKey(Guerreiro, on_delete=models.CASCADE, related_name='gz2')
     v2 = models.IntegerField(default=0)
     confronto = models.ForeignKey(Confronto, on_delete=models.CASCADE)
+    pSeason = models.ForeignKey(Season, on_delete=models.CASCADE, related_name='pSeason', default=1)
 
 class Titulo(models.Model):
     def __str__(self):
