@@ -87,6 +87,8 @@ class Partida(models.Model):
         Guerreiro.save(guerreiro)
 
     def save(self, *args, **kwargs):
+        if self.gz1.season != self.pSeason:
+            self.pSeason = self.gz1.season
         if not Guerreiro().exist_lowSeason(self.gz1):
             if len(self.faltaLutar(self.gz1))-1 <= 0:
                 self.updateGuerreiroSeason(self.gz1)
