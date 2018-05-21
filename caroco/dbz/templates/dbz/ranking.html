@@ -2,11 +2,13 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<style>
-	a{color: #000;}
+	a{color: #000; cursor: pointer; text-decoration: none;}
 table {
+    font-size: 11px;	 
     border-collapse: collapse;
     background: #ccc;
     width: 60%;
@@ -29,6 +31,10 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
 }
 
 </style>
@@ -42,8 +48,8 @@ body{
   <div class="btn-group" role="group">
   </div>
   <div class="btn-group" role="group" style="text-align: center;">
-  	<a style="text-decoration: none;" href="/confronto/"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>Confrontos</button></a>
-  </div>
+  	<a style="text-decoration: none;" href="/confronto/"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Confrontos</button>
+</a></div>
   <div class="btn-group" role="group">
   	
   </div>
@@ -75,6 +81,8 @@ body{
 </table>
   </div>
 </div>
+<br>
+<br>
 {% else %}
 	< p > Sem jogadores para calcular o rank. </ p >
 {% endif %}
