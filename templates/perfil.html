@@ -71,7 +71,7 @@ body{
 			{% for dbz in latest_dbz_guerreiro %}
 	
 	<tr>
-			<td colspan=3>{% if foto %} <img src="img/kame.jpeg" height=150 width=200/> {% endif %}</td>
+			<td colspan=3>{% if foto %} <img src="{{ foto }}" height=150 width=200/> {% endif %}</td>
 			<td>{{ dbz.nome }}</td>
 			{% endfor %}
 		    {% endif %}
