@@ -1,0 +1,72 @@
+<html>
+	<head>
+	<style>
+body {
+    background-image: url('https://i.pinimg.com/originals/8e/bd/9d/8ebd9d647b90b3787d3dc294911b450f.jpg');
+}
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+th {
+	background-color: orange;
+	color: white
+
+}
+td {
+    background-color: lightblue;
+}
+
+</style>
+	</head>
+
+	<body>
+	<ul>
+		<a href="/dbz/ranking/">Voltar ao Ranking</a>
+		<table>
+			<tr>
+							<th colspan=3>Foto</th>
+							<th>GuerreiroZ</th>
+							<th>Titulo</tr>
+							</tr>
+
+		{% if latest_dbz_guerreiro %}
+			{% for dbz in latest_dbz_guerreiro %}
+			<tr>
+			<td colspan=3>{% if foto %} <img src="{{ foto }}" height=150 width=200/> {% endif %}</td>
+			<td>
+				{{ dbz.nome }}</td>
+			{% endfor %}
+		{% endif %}
+		{% if titulo %}
+				<td>{{ titulo }}</td>
+		{% endif %}<br \>
+		<br \>
+		</tr>
+		<tr>
+			<th>GuerreiroZ</th>
+			<th>Pontos</th>
+			<th>GuerreiroZ</th>
+			<th>Pontos</th>
+			<th>Season</th>
+		</tr>
+		{% if latest_dbz_partidas %}
+			{% for dbz_p in latest_dbz_partidas %}
+			<tr>
+				<td>{{ dbz_p.gz1 }}</td><td>{{ dbz_p.v1 }}</td> <td>{{ dbz_p.v2 }}</td><td>{{ dbz_p.gz2 }}</td><td>{{ dbz_p.pSeason.temporada }}</td>
+				</tr>
+			{% endfor %}
+		{% endif %}
+		{% if latest_dbz_faltaJ %}
+		<tr>
+		<th colspan=5>Falta lutar com: </th>
+		</tr>
+			{% for f in latest_dbz_faltaJ %}
+			    <tr> <td colspan=5>{{ f.nome }}</td></tr>
+			{% endfor %}
+		{% endif %}
+		</table>
+		</ul>
+	</body>
+
+</html>

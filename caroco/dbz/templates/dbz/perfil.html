@@ -1,72 +1,120 @@
+<!DOCTYPE html>
 <html>
-	<head>
+<head>
+	<title></title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<style>
-body {
-    background-image: url('https://i.pinimg.com/originals/8e/bd/9d/8ebd9d647b90b3787d3dc294911b450f.jpg');
+	a{color: #000; cursor: pointer; text-decoration: none;}
+table {
+    font-size: 13px;
+    border: 1px;
+    border-collapse: collapse;
+    background: #ccc;
+    width: 60%;
+   	margin: 0 auto;
+   	margin-top: 10px;
 }
-table, th, td {
-    border: 1px solid black;
+.confro{background: #FF4500; #color: #000;}
+td, th {
+    border: 1px solid #dddddd;
     text-align: center;
+    padding: 8px;
 }
-th {
-	background-color: orange;
-	color: white
 
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
-td {
-    background-color: lightblue;
+body{
+	 background: url("https://i.pinimg.com/originals/8e/bd/9d/8ebd9d647b90b3787d3dc294911b450f.jpg")no-repeat ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
+
+
+
 
 </style>
-	</head>
+</head>
+<body>
+	<img src="img/dra.gif" style="position: absolute; margin-top: -100px;">
+<div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 60px;">
+  <div class="btn-group" role="group">
+  </div>
+  <div class="btn-group" role="group">
+  </div>
+  <div class="btn-group" role="group">
+  </div>
+  <div class="btn-group" role="group" style="text-align: center;">
+  	<a style="text-decoration: none;" href="/dbz/ranking/"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>Ranking</button></a>
+  	<a style="text-decoration: none;" href="/confronto/"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>Confronto</button></a>
 
-	<body>
-	<ul>
-		<a href="/dbz/ranking/">Voltar ao Ranking</a>
-		<table>
-			<tr>
-							<th colspan=3>Foto</th>
-							<th>GuerreiroZ</th>
-							<th>Titulo</tr>
-							</tr>
+  </div>
+  <div class="btn-group" role="group">
+  	
+  </div>
+</div>
 
-		{% if latest_dbz_guerreiro %}
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+   <table>
+	<tr class="confro">
+			<th colspan=3>Foto</th>
+			<th>GuerreiroZ</th>
+			<th>Titulo</th>
+			</tr>
+
+		    {% if latest_dbz_guerreiro %}
 			{% for dbz in latest_dbz_guerreiro %}
-			<tr>
+	
+	<tr>
 			<td colspan=3>{% if foto %} <img src="{{ foto }}" height=150 width=200/> {% endif %}</td>
-			<td>
-				{{ dbz.nome }}</td>
+			<td>{{ dbz.nome }}</td>
 			{% endfor %}
-		{% endif %}
-		{% if titulo %}
-				<td>{{ titulo }}</td>
-		{% endif %}<br \>
-		<br \>
-		</tr>
-		<tr>
-			<th>GuerreiroZ</th>
-			<th>Pontos</th>
-			<th>GuerreiroZ</th>
-			<th>Pontos</th>
-			<th>Season</th>
-		</tr>
-		{% if latest_dbz_partidas %}
-			{% for dbz_p in latest_dbz_partidas %}
-			<tr>
-				<td>{{ dbz_p.gz1 }}</td><td>{{ dbz_p.v1 }}</td> <td>{{ dbz_p.v2 }}</td><td>{{ dbz_p.gz2 }}</td><td>{{ dbz_p.pSeason.temporada }}</td>
-				</tr>
-			{% endfor %}
-		{% endif %}
-		{% if latest_dbz_faltaJ %}
-		<tr>
-		<th colspan=5>Falta lutar com: </th>
-		</tr>
-			{% for f in latest_dbz_faltaJ %}
-			    <tr> <td colspan=5>{{ f.nome }}</td></tr>
-			{% endfor %}
-		{% endif %}
-		</table>
-		</ul>
-	</body>
+		    {% endif %}
+		    {% if titulo %}
+			<td>{{ titulo }}</td>
+		    {% endif %}<br \>
+		    <br \>
+		    </tr>
 
+	<tr>
+		<th>GuerreiroZ</th>
+		<th>Pontos</th>
+		<th>GuerreiroZ</th>
+		<th>Pontos</th>
+		<th>Season</th>
+	</tr>
+	{% if latest_dbz_partidas %}  {% for dbz_p in latest_dbz_partidas %}
+	<tr>
+	<td>{{ dbz_p.gz1 }}</td><td>{{ dbz_p.v1 }}</td> <td>{{ dbz_p.v2 }}</td><td>{{ dbz_p.gz2 }}</td><td>{{ dbz_p.pSeason.temporada }}</td>
+	</tr>
+	{% endfor %}
+	{% endif %}
+	{% if latest_dbz_faltaJ %}
+	<tr>
+	<th colspan=5>Falta lutar com: </th>
+	</tr>
+	{% for f in latest_dbz_faltaJ %}
+	<tr> 
+	<td colspan=5>{{ f.nome }}</td>
+    </tr>
+    {% endfor %}
+	{% endif %}
+</table>
+  </div>
+</div>
+</body>
 </html>
+
+
+
+
+
+
+
