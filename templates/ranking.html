@@ -52,7 +52,7 @@ body{
 
 <div class="btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
-  {% se latest_dbz_list%}
+  {% if latest_dbz_list%}
    <table>
 	<tr class="confro">
 		<th>RANKING</th>
@@ -62,10 +62,10 @@ body{
 		<th>TITULO</th>
 		<th>TEMPORADA</th>
 	</tr>	
-	{% de dbz em latest_dbz_list%}
+	{% for dbz in latest_dbz_list%}
 	<tr>
 		<td>{{dbz.posicao}} </td>
-		<td><a href="/dbx/perfil/ {{dbz.id}}/">{{dbz.guerreiro}}</a></td>
+		<td><a href="/dbz/perfil/{{dbz.id}}/">{{dbz.guerreiro}}</a></td>
 		<td>{{dbz.partidas}}</td>
 		<td>{{dbz.pontos}}</td>
 		<td>{{dbz.titulo}}</td>
@@ -75,8 +75,8 @@ body{
 </table>
   </div>
 </div>
-{% outro %}
+{% else %}
 	< p > Sem jogadores para calcular o rank. </ p >
-{% fim se %}
+{% endif %}
 </body>
 </html>
