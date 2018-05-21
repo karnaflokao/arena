@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style>
+	a{color: #000;}
+table {
+    border-collapse: collapse;
+    background: #ccc;
+    width: 60%;
+   	margin: 0 auto;
+   	margin-top: 50px;
+}
+.confro{background: #FF4500;}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+body{
+	 background: url("http://images.pushsquare.com/news/2015/08/dragon_ball_xenoverse_dares_you_to_take_part_in_its_huge_online_tournament/attachment/0/original.jpg")no-repeat ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+</style>
+</head>
+<body>
+<div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 100px;">
+  <div class="btn-group" role="group">
+  </div>
+  <div class="btn-group" role="group">
+  </div>
+  <div class="btn-group" role="group">
+  </div>
+  <div class="btn-group" role="group" style="text-align: center;">
+  	<button type="button" class="btn btn-success"><a style="text-decoration: none;" href="/dbz/classificação/"><span class="glyphicon glyphicon-arrow-left"></span> classificação</a></button>
+  </div>
+  <div class="btn-group" role="group">
+  	
+  </div>
+</div>
+
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+  	{% if latest_confronto_list %}
+   <table>
+	<tr class="confro">
+		<th>Confronto</th>
+		<th>dados</th>
+		<th>Jogo</th>
+		<th>Oficial</th>
+		<th>Reserva de Dados</th>
+	</tr>
+	{% for confronto in latest_confronto_list %}	
+	<tr>
+		<td>{{confronto.time1}} x {{confronto.time2}} </td>
+		<td>{{confronto.data_jogo}}</td>
+		<td>{{confronto.jogo}}</td>
+		<td>{{confronto.valendo}}</td>
+		<td>{{confronto.data_reserv}}</td>
+	</tr>
+	{% endfor %}
+</table>
+  </div>
+</div>
+{% else %}
+<p>No confronto are available.</p>
+{% endif %}
+</body>
+</html>
